@@ -1,0 +1,16 @@
+{
+  "title": "Flutter Course 2",
+  "lessons": [
+    { "id": 1,  "title": "Counter App",     "subtitle": "1-сабак. Эсептегич колдонмо",        "icon": "add_circle",     "folder": "counter_app",    "status": "done" },
+    { "id": 2,  "title": "I'm Rich",        "subtitle": "2-сабак. Мен баймын",                "icon": "diamond",        "folder": "im_rich",        "status": "soon" },
+    { "id": 3,  "title": "Visit Card",      "subtitle": "3-сабак. Жеке визиттик карточкаң",   "icon": "badge",          "folder": "visit_card",     "status": "soon" },
+    { "id": 4,  "title": "Dice App",        "subtitle": "4-сабак. Кубик ыргытуу",             "icon": "casino",         "folder": "dice_app",       "status": "soon" },
+    { "id": 5,  "title": "Xylophone App",   "subtitle": "5-сабак. Музыка чыгаруучу колдонмо", "icon": "music_note",     "folder": "xylophone_app",  "status": "soon" },
+    { "id": 6,  "title": "Quiz App",        "subtitle": "6-сабак. Тест викторина",            "icon": "quiz",           "folder": "quiz_app",       "status": "soon" },
+    { "id": 7,  "title": "BMI Calculator",  "subtitle": "7-сабак. Дене салмагынын индекси",   "icon": "monitor_weight", "folder": "bmi_calculator", "status": "soon" },
+    { "id": 8,  "title": "The Weather App", "subtitle": "8-сабак. Аба ырайы",                 "icon": "wb_sunny",       "folder": "weather_app",    "status": "soon" },
+    { "id": 9,  "title": "Flash Chat",      "subtitle": "9-сабак. Онлайн чат",                "icon": "chat_bubble",    "folder": "flash_chat",     "status": "soon" },
+    { "id": 10, "title": "Country Test",    "subtitle": "10-сабак. Дүйнө өлкөлөрүнүн тести",  "icon": "public",         "folder": "country_test",   "status": "soon" },
+    { "id": 11, "title": "News App",        "subtitle": "11-сабак. Жаңылыктар порталы",       "icon": "newspaper",      "folder": "news_app",       "status": "soon" }
+  ]
+}

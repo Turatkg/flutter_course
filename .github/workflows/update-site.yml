@@ -1,0 +1,15 @@
+# Курстун коду өзгөргөндө сайтты автоматтык түрдө жаңыртат.
+name: Сайттагы сабактарды жаңыртуу
+
+on:
+  push:
+    branches: [main]
+    tags: ['lesson-*']
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vercel'ге кайра build кылууну буйруу
+        run: curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
