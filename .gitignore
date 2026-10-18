@@ -1,0 +1,167 @@
+# ==============================================================================
+# Flutter & Dart - GitHub үчүн эң коопсуз жана толук .gitignore файлы
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. КООПСУЗДУК ЖАНА КУПУЯ МААЛЫМАТТАР (SECRETS & API KEYS)
+# ------------------------------------------------------------------------------
+# API ачкычтар, токөндөр жана чөйрө өзгөрмөлөрү (.env)
+.env
+.env.*
+*.env
+*.env.json
+env.json
+secrets.json
+credentials.json
+local_settings.json
+config.local.json
+
+
+# Firebase жана Cloud конфигурациялары (жеке долбоор ачкычтарын коргоо)
+**/google-services.json
+**/GoogleService-Info.plist
+*service-account*.json
+*firebase_options.local.dart
+
+# Android кол коюу ачкычтары (Keystores, Keys, Signing)
+*.keystore
+*.jks
+key.properties
+local.properties
+**/android/local.properties
+**/android/key.properties
+
+# Apple / iOS сертификаттары жана профилдери
+*.cer
+*.cert
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
+*.key
+*.pem
+
+# ------------------------------------------------------------------------------
+# 2. FLUTTER ЖАНА DART КУРУЛУШ (BUILD & TOOLS) ФАЙЛДАРЫ
+# ------------------------------------------------------------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+**/build/
+/coverage/
+**/coverage/
+**/doc/api/
+.widget_preview/
+migrate_working_dir/
+
+# Symbolication & Obfuscation
+*.symbols
+*.map.json
+app.*.symbols
+app.*.map.json
+
+# ------------------------------------------------------------------------------
+# 3. ANDROID ПЛАТФОРМАСЫНА ТИЕШЕЛҮҮ КЕШ ЖАНА БИЛДДЕР
+# ------------------------------------------------------------------------------
+**/android/.gradle/
+**/android/captures/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+**/android/.cxx/
+GeneratedPluginRegistrant.java
+**/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+
+# Android чыгарылыш файлдары
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ------------------------------------------------------------------------------
+# 4. IOS ЖАНА MACOS ПЛАТФОРМАСЫНА ТИЕШЕЛҮҮ КЕШ ЖАНА БИЛДДЕР
+# ------------------------------------------------------------------------------
+**/Pods/
+**/.symlinks/
+**/xcuserdata/
+**/DerivedData/
+*.moved-aside
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.ipa
+*.app
+
+# Flutter iOS & macOS генерация кылган файлдары
+**/Flutter/Generated.xcconfig
+**/Flutter/flutter_export_environment.sh
+**/Flutter/ephemeral/
+**/Flutter/app.flx
+**/Flutter/app.zip
+**/Flutter/flutter_assets/
+**/Flutter/.last_build_id
+ServiceDefinitions.json
+**/Runner/GeneratedPluginRegistrant.*
+macos/Flutter/GeneratedPluginRegistrant.swift
+
+# ------------------------------------------------------------------------------
+# 5. LINUX ЖАНА WINDOWS ПЛАТФОРМАЛАРЫ
+# ------------------------------------------------------------------------------
+**/linux/flutter/ephemeral/
+**/windows/flutter/ephemeral/
+**/windows/flutter/generated_plugin_registrant.*
+**/linux/flutter/generated_plugin_registrant.*
+
+# ------------------------------------------------------------------------------
+# 6. IDE ЖАНА РЕДАКТОРЛОР (VS CODE, ANDROID STUDIO, INTELLIJ)
+# ------------------------------------------------------------------------------
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+.android/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Fleet & Sublime Text
+.fleet/
+*.sublime-*
+
+# ------------------------------------------------------------------------------
+# 7. ОПЕРАЦИЯЛЫК СИСТЕМАЛАРДЫН КЕРЕКСИЗ ЖАНА УБАКТЫЛУУ ФАЙЛДАРЫ
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Linux & General
+*~
+*.swp
+*.bak
+*.class
+*.pyc
+
+# ------------------------------------------------------------------------------
+# 8. ЖУРНАЛДАР ЖАНА ОТЧЕТТОР (LOGS & CRASH REPORTS)
+# ------------------------------------------------------------------------------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+crashlytics-build.properties
