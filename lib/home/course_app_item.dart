@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course/im_rich/im_rich.dart';
 
 import '../counter_app/counter_screen.dart';
 
@@ -34,7 +35,7 @@ class CourseAppItem {
       subtitle: "2-сабак. Мен баймын",
       icon: Icons.diamond_outlined,
       color: Color(0xff2563eb),
-      pageBuilder: (_) => const CounterScreen(),
+      pageBuilder: (_) => const ImRichScreen(),
     ),
     CourseAppItem(
       id: 3,
