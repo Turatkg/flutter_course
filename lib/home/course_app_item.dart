@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course/im_rich/im_rich.dart';
+import 'package:flutter_course/visit_card/visit_card_screen.dart';
 
 import '../counter_app/counter_screen.dart';
 
@@ -43,7 +44,7 @@ class CourseAppItem {
       subtitle: "3-сабак. Жеке визиттик карточкаң",
       icon: Icons.badge_outlined,
       color: Color(0xff2563eb),
-      pageBuilder: (_) => const CounterScreen(),
+      pageBuilder: (_) => const VisitCardScreen(),
     ),
     CourseAppItem(
       id: 4,
