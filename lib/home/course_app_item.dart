@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course/dice_app/dice_screen.dart';
 import 'package:flutter_course/im_rich/im_rich.dart';
 import 'package:flutter_course/visit_card/visit_card_screen.dart';
 
@@ -52,7 +53,7 @@ class CourseAppItem {
       subtitle: "4-сабак. Кубик ыргытуу",
       icon: Icons.casino_outlined,
       color: Color(0xff2563eb),
-      pageBuilder: (_) => const CounterScreen(),
+      pageBuilder: (_) => const DiceScreen(),
     ),
     CourseAppItem(
       id: 5,
