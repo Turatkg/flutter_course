@@ -10,29 +10,57 @@ class XylophoneScreen extends StatefulWidget {
 }
 
 class _XylophoneScreenState extends State<XylophoneScreen> {
-  // Audio ойнотуучу ойноткуч жасайбыз (Audioplayer)
-  late final AudioPlayer _audioPlayer;
+  // КАТАНЫН СЕБЕБИ: Мурун 7 нотага 1 гана AudioPlayer колдонулуп, баскан сайын
+  // stop() жана play() удаа чакырылган. Ноталарды бат-баттан басканда мурунку үн
+  // жүктөлүп бүтө электе stop() аны үзүп салып, плеер катып (үн чыкпай) калган.
+  // ЧЕЧИМИ: Ар бир нотага өзүнчө плеер түзүп, үндөрдү алдын ала даярдап коёбуз.
+
+  // 7 нота үчүн 7 өзүнчө аудио ойноткучтун (AudioPlayer) тизмеси
+  late final List<AudioPlayer> _audioPlayers;
+
+  // Ар бир нотанын аудио файлы толук жүктөлүп бүткөнүн көзөмөлдөөчү тизме
+  late final List<Future<void>> _playerInitFutures;
 
   @override
   void initState() {
     super.initState();
-    _audioPlayer = AudioPlayer();
+    // Экран ачылганда 7 нотага 7 жаңы AudioPlayer түзөбүз
+    _audioPlayers = List.generate(7, (_) => AudioPlayer());
+    // 7 плеердин ар бирине өзүнүн нотасын алдын ала жүктөйбүз
+    _playerInitFutures = List.generate(7, _preparePlayer);
+  }
+
+  // Берилген индекстеги (0..6) плеерди даярдоочу функция
+  Future<void> _preparePlayer(int index) async {
+    // Тизмеден керектүү плеерди алабыз
+    final player = _audioPlayers[index];
+    // Үн бүткөндө аудиону эстутумдан өчүрбөй, кайра ойнотууга даяр кармайт
+    await player.setReleaseMode(ReleaseMode.stop);
+    // Нотанын файлын (note_1.wav .. note_7.wav) плеерге алдын ала жүктөп коёбуз
+    await player.setSource(AssetSource('xylophone/note_${index + 1}.wav'));
   }
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
+    // Экран жабылганда бардык 7 плеерди өчүрүп, эстутумду (память) бошотобуз
+    for (final player in _audioPlayers) {
+      player.dispose();
+    }
     super.dispose();
   }
 
-  // Xylophone дун керектүү нотасын ойнотуучу функция
-  // SoundNumber - 1 ден 7 ге чейин нотанын номери
-
+  // Керектүү нотаны ойнотуучу функция (soundNumber: 1 ден 7 ге чейин)
   Future<void> playSound(int soundNumber) async {
-    // Эгер бизде мурда бир нота басылып, анын үнү өчө элек болсо, аны өчүрүп анан дароо басылган нотанын үнүн иштетебиз.
-    await _audioPlayer.stop();
-    // AssetsSource аркылуу биздин ассетс папкадан үндөрдү алып, иштетет.
-    await _audioPlayer.play(AssetSource('xylophone/note_$soundNumber.wav'));
+    // Тизменин индекси 0дөн башталгандыктан, нотанын номеринен 1ди кемитебиз
+    final index = soundNumber - 1;
+    // Нотанын аудио файлы даяр болгонун текшеребиз
+    await _playerInitFutures[index];
+    // Тиешелүү нотанын плеерин алабыз
+    final player = _audioPlayers[index];
+    // Эгер нота ойноп жаткан болсо, үндү эң башына (0-секундага) кайтарабыз
+    await player.seek(Duration.zero);
+    // Нотанын үнүн дароо улантабыз (ойнотобуз)
+    await player.resume();
   }
 
   @override
