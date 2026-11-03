@@ -17,7 +17,7 @@ class _DiceScreenState extends State<DiceScreen> {
 
   // кубиктерди рандом тандап алуу функциясы же кубиктерди ыргытуучу функция
 
-  void rollDice() {
+  void kubiktiYrgyt() {
     setState(() {
       leftDice = Random().nextInt(6) + 1;
       rightDice = Random().nextInt(6) + 1;
@@ -47,9 +47,9 @@ class _DiceScreenState extends State<DiceScreen> {
           child: Row(
             children: [
               // Image.asset ордуна SvgPicture.asset колдонобуз
-              DiceWidget(diceNumber: leftDice, onTap: rollDice),
+              DiceWidget(diceNumber: leftDice, onTap: kubiktiYrgyt),
               const SizedBox(width: 16),
-              DiceWidget(diceNumber: rightDice, onTap: rollDice),
+              DiceWidget(diceNumber: rightDice, onTap: kubiktiYrgyt),
             ],
           ),
         ),
